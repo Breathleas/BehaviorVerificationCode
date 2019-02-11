@@ -8,11 +8,16 @@
 移动滑块
 
 ## 代码地址
+https://github.com/yuanchao1893/BehaviorVerificationCode/tree/master/com
+运行GetPosition看效果
 
-##需要注意的问题
+## 视频效果
 
-在最新的SDK版本有了新的mas字段辅助校验，还在破解中，但是用旧版可以忽略这个参数，只需要把跟版本相关的调到169之前就可以了
-##有问题反馈
+https://github.com/yuanchao1893/BehaviorVerificationCode/tree/master/effects
+## 需要注意的问题
+
+针对不同厂商的验证码需要手动获取所需要的滑块图片以及缺口等图片
+## 有问题反馈
 
 有问题可以QQ群：193990770，--点个star进群--，--进群标明github--,谢谢
 
