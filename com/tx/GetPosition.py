@@ -13,21 +13,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def initJs(driver):
-    driver.execute_script("""
-            window.addEventListener("message", receiveMessage, false);
-            function receiveMessage(event)
-            {
-                window.ticket = eval("("+event.data+")").message.ticket
-            }
-                   
-        """)
 
-
-def getTicket(driver):
-    return driver.execute_script("""
-                return window.ticket;
-           """)
 
 
 def show(name):
@@ -114,7 +100,7 @@ driver.get(
     "https://h5.kugou.com/apps/h5Verify/verify.html?thisurl=https%3A%2F%2Fcaptcha.guard.qcloud.com%2Ftemplate%2FTCapIframeApi.js%3Fappid%3D1253967378%26clientype%3D4%26lang%3D2052%26asig%3D3zTe0ZtlS_Vjq3cA_JQ1ZXhZy7f_B21po7cRaJZfhWCyHORe1c9usVnnn3NZwcNQc2v9WdLPq1qgdGKW5arV92iHgo8bl75s")
 # time.sleep(5)
 WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.ID,'tcaptcha_iframe')))
-initJs(driver)
+
 driver.switch_to.frame(driver.find_element_by_xpath('//iframe[@id="tcaptcha_iframe"]'))
 # time.sleep(1)
 bkBlock = driver.find_element_by_xpath('//img[@id="bkBlock"]')
@@ -147,6 +133,4 @@ time.sleep(1)
 # print('第三步,释放鼠标')
 ActionChains(driver).release(on_element=slidIng).perform()
 time.sleep(3)
-ticket = getTicket(driver)
-print(ticket)
 
